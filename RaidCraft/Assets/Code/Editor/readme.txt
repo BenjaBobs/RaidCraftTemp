@@ -1,0 +1,1 @@
+This folder is intented for editorscripts
