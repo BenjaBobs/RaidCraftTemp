@@ -18,7 +18,12 @@ public class BaseStorageBuilding : BaseBuilding
     public int CurrentAmount
     {
         get { return _currentAmount; }
-        set { _currentAmount = value; }
+        set 
+        {
+            if (value > MaxCapacity) value = MaxCapacity;
+            _currentAmount = value;
+            if (_currentAmount == MaxCapacity) OnMaxCapacityReached();
+        }
     }
 
     public virtual void OnMaxCapacityReached()
